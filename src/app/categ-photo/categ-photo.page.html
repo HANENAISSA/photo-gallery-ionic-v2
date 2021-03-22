@@ -1,10 +1,41 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>categ-photo</ion-title>
+    <ion-title>{{ categName }}</ion-title>
+    <ion-content
+      fill="outline"
+      color="primary"
+      class="ion-margin-vertical ion-text-right"
+    >
+    </ion-content>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1>Hello Hannoun, this is {{ categName }}</h1>
-
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title>{{ categName }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-grid>
+        <ion-row>
+          <div *ngFor="let photo of photoService.photos; index as position">
+            <ion-item *ngIf="categName===photo.Cat">
+            <ion-img style="width: 200px; height: 200px;"
+              [src]="photo.webviewPath"
+              (click)="showActionSheet(photo, position)"
+            ></ion-img>
+            </ion-item>
+          </div>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </ion-content>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>

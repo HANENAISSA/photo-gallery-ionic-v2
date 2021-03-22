@@ -19,27 +19,8 @@
     <ion-list *ngFor="let categ of CategoryList; index as position">
       <ion-item-divider>
         <ion-button fill="clear" size="default" [routerLink]="['/categ-photo', categ]"> {{categ}}</ion-button>
-        <ion-grid>
-          <ion-row>
-            <!-- <div *ngFor="let photo of photoService.photos; index as position">
-              <ion-item *ngIf="categ===photo.Cat">
-                <ion-img
-                  [src]="photo.webviewPath"
-                  (click)="showActionSheet(photo, position)"
-                ></ion-img>
-              </ion-item>
-            </div> -->
-          </ion-row>
-        </ion-grid>
       </ion-item-divider>
     </ion-list>
-    <!-- ion-fab markup  -->
-    <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-      <ion-fab-button (click)="addPhotoToGallery()">
-        <ion-icon name="camera"></ion-icon>
-      </ion-fab-button>
-    </ion-fab> -->
-
     <ion-fab slot="fixed" horizontal="end" vertical="bottom">
       <ion-fab-button (click)="showAlert()"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
     </ion-fab>
